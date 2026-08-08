@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8º Uchinanchu Taikai Okinawa 2027 — A maior festa Uchinanchu do mundo</title>
+<meta name="description" content="Venha participar da maior festa Uchinanchu do mundo. 8º Uchinanchu Taikai Okinawa 2027 — 27 a 31 de Outubro. Pacotes com vagas limitadas. Nakasone Turismo e Oshiro Turismo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d63a2f'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' font-weight='bold' text-anchor='middle' fill='%23f7c96b'%3E8%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800;9..144,900&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean-950: #07243c;
+    --ocean-900: #0a2e4a;
+    --ocean-800: #0d3b66;
+    --ocean-700: #14508a;
+    --coral: #d63a2f;
+    --coral-deep: #b02a20;
+    --gold: #f0a92e;
+    --gold-soft: #f7c96b;
+    --cream: #faf5ec;
+    --paper: #fffdf8;
+    --ink: #16283a;
+    --muted: #5d6c7c;
+    --line: #e8dfd0;
+    --wa: #25d366;
+    --wa-deep: #1da851;
+    --shadow-sm: 0 2px 8px rgba(10, 46, 74, .08);
+    --shadow-md: 0 12px 32px rgba(10, 46, 74, .14);
+    --shadow-lg: 0 24px 60px rgba(10, 46, 74, .22);
+    --radius: 16px;
+    --container: 1180px;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Work Sans", system-ui, -apple-system, sans-serif;
+    --font-jp: "Noto Sans JP", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .container { width: min(var(--container), 92%); margin-inline: auto; }
+
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; margin: 0; }
+  .kicker {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin: 0 0 .6rem;
+  }
+  .kicker--light { color: var(--gold-soft); }
+  .jp {
+    font-family: var(--font-jp);
+    font-weight: 500;
+    letter-spacing: .06em;
+  }
+
+  /* ---------- Seigaiha wave pattern ---------- */
+  .seigaiha {
+    background-image:
+      radial-gradient(circle at 100% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%),
+      radial-gradient(circle at 0% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%);
+    background-size: 96px 56px;
+    background-position: 0 0, 48px 0;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: .95rem 1.6rem;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    min-height: 48px;
+  }
+  .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .btn--coral { background: var(--coral); color: #fff; box-shadow: 0 8px 20px rgba(214, 58, 47, .35); }
+  .btn--coral:hover { background: var(--coral-deep); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(214, 58, 47, .42); }
+  .btn--ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px rgba(255,255,255,.55); }
+  .btn--ghost:hover { box-shadow: inset 0 0 0 2px #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
+  .btn--wa { background: var(--wa); color: #fff; box-shadow: 0 8px 20px rgba(37, 211, 102, .35); }
+  .btn--wa:hover { background: var(--wa-deep); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(37, 211, 102, .45); }
+  .btn--gold { background: var(--gold); color: var(--ocean-950); box-shadow: 0 8px 20px rgba(240, 169, 46, .35); }
+  .btn--gold:hover { background: var(--gold-soft); transform: translateY(-2px); }
+  .btn svg { flex: none; }
+  .btn--lg { padding: 1.1rem 2.1rem; font-size: 1.08rem; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    background: rgba(250, 245, 236, .92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--line); box-shadow: var(--shadow-sm); }
+  .nav__inner { display: flex; align-items: center; gap: 1.5rem; height: 72px; }
+  .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+  .brand__mark {
+    width: 42px; height: 42px; flex: none;
+    background: var(--coral);
+    color: var(--gold-soft);
+    border-radius: 12px;
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-weight: 900; font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(214, 58, 47, .35);
+  }
+  .brand__name { font-weight: 700; font-size: .98rem; line-height: 1.2; color: var(--ink); }
+  .brand__name span { display: block; font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
+  .nav__links { display: flex; align-items: center; gap: 1.7rem; margin-left: auto; }
+  .nav__links a {
+    text-decoration: none; font-weight: 600; font-size: .95rem; color: var(--ink);
+    position: relative; padding: .3rem 0;
+  }
+  .nav__links a::after {
+    content: ""; position: absolute; left: 0; right: 100%; bottom: 0;
+    height: 2px; background: var(--coral); transition: right .22s ease;
+  }
+  .nav__links a:hover::after { right: 0; }
+  .nav__cta { margin-left: .4rem; padding: .62rem 1.25rem; font-size: .92rem; }
+  .nav__toggle {
+    display: none; margin-left: auto;
+    background: none; border: 0; cursor: pointer; padding: .5rem;
+    color: var(--ink);
+  }
+  .nav__toggle svg { display: block; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    color: #fff;
+    background:
+      radial-gradient(900px 480px at 82% -10%, rgba(240, 169, 46, .22), transparent 60%),
+      radial-gradient(700px 420px at -10% 110%, rgba(214, 58, 47, .25), transparent 60%),
+      linear-gradient(160deg, var(--ocean-950) 0%, var(--ocean-800) 55%, var(--ocean-700) 100%);
+    padding: 172px 0 110px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    color: rgba(255, 255, 255, .055);
+    opacity: .9;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+  }
+  .hero::before { /* seigaiha overlay */
+    background-image:
+      radial-gradient(circle at 100% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%),
+      radial-gradient(circle at 0% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%);
+    background-size: 96px 56px;
+    background-position: 0 0, 48px 0;
+  }
+  .hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.08fr .92fr;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .hero__eyebrow {
+    display: inline-flex; align-items: center; gap: .6rem;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .22);
+    padding: .45rem 1rem;
+    border-radius: 999px;
+    font-size: .86rem; font-weight: 600; letter-spacing: .04em;
+    color: var(--gold-soft);
+    margin-bottom: 1.4rem;
+  }
+  .hero__eyebrow .jp { font-size: .95rem; }
+  .hero h1 {
+    font-size: clamp(2.7rem, 6.2vw, 4.7rem);
+    font-weight: 900;
+    letter-spacing: .01em;
+  }
+  .hero h1 .line { display: block; }
+  .hero h1 .red { color: var(--coral); }
+  .hero h1 .red-dark { color: #e2544a; }
+  .hero h1 .sub {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: .35rem;
+    padding-bottom: .2rem;
+    border-bottom: 3px solid var(--coral);
+  }
+  .hero__tagline {
+    font-size: clamp(1.05rem, 1.8vw, 1.22rem);
+    color: rgba(255, 255, 255, .92);
+    max-width: 34ch;
+    margin: 1.5rem 0 1.8rem;
+  }
+  .hero__date {
+    display: inline-flex; align-items: center; gap: .65rem;
+    background: var(--ocean-900);
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 12px;
+    padding: .7rem 1.15rem;
+    font-weight: 700; font-size: 1.02rem;
+    color: #fff;
+    margin-bottom: 1.9rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero__date svg { color: var(--gold); }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: .9rem; }
+  .hero__note { margin-top: 1.15rem; font-size: .85rem; color: rgba(255, 255, 255, .66); }
+  .hero__note strong { color: var(--gold-soft); font-weight: 600; }
+
+  .hero__poster {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 430px);
+  }
+  .hero__poster::before {
+    content: "";
+    position: absolute; inset: -18px;
+    color: rgba(247, 201, 107, .28);
+    background-image:
+      radial-gradient(circle at 100% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%),
+      radial-gradient(circle at 0% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%);
+    background-size: 96px 56px;
+    background-position: 0 0, 48px 0;
+    border: 1.5px dashed rgba(247, 201, 107, .5);
+    border-radius: 22px;
+    transform: rotate(2.5deg);
+    z-index: 0;
+  }
+  .hero__poster figure {
+    margin: 0;
+    background: #fff;
+    padding: 10px 10px 14px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    transform: rotate(-1.8deg);
+    transition: transform .35s ease;
+    position: relative;
+    z-index: 1;
+  }
+  .hero__poster:hover figure { transform: rotate(0deg) scale(1.015); }
+  .hero__poster img { border-radius: 10px; width: 100%; height: auto; }
+  .hero__poster figcaption {
+    text-align: center;
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding-top: .6rem;
+  }
+  .hero__sticker {
+    position: absolute;
+    z-index: 2;
+    top: -16px; right: -14px;
+    background: var(--coral);
+    color: #fff;
+    font-weight: 700; font-size: .78rem;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: .55rem .9rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(214, 58, 47, .45);
+    transform: rotate(4deg);
+  }
+
+  /* ---------- Wave divider ---------- */
+  .divider { display: block; width: 100%; height: 64px; fill: var(--paper); }
+
+  /* ---------- Section base ---------- */
+  section { padding: clamp(4.2rem, 8vw, 6.5rem) 0; }
+  .section--cream { background: var(--cream); }
+  .section--paper { background: var(--paper); }
+  .section--ocean {
+    background:
+      radial-gradient(800px 420px at 15% 0%, rgba(240, 169, 46, .14), transparent 60%),
+      linear-gradient(165deg, var(--ocean-950), var(--ocean-800));
+    color: #fff;
+    position: relative;
+  }
+  .section__head { max-width: 640px; margin-bottom: clamp(2.2rem, 4vw, 3.4rem); }
+  .section__head h2 { font-size: clamp(1.9rem, 3.6vw, 2.85rem); font-weight: 800; }
+  .section__head p { margin: 1rem 0 0; font-size: 1.06rem; color: var(--muted); }
+  .section--ocean .section__head p { color: rgba(255, 255, 255, .78); }
+  .section--ocean .section__head h2 .jp { color: var(--gold-soft); }
+
+  /* ---------- Sobre ---------- */
+  .sobre__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: start; }
+  .sobre__intro { position: sticky; top: 110px; }
+  .sobre__intro h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 800; }
+  .sobre__intro .jp-big {
+    font-family: var(--font-jp);
+    font-size: clamp(4.5rem, 9vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(214, 58, 47, .35);
+    margin-top: 1.2rem;
+    user-select: none;
+  }
+  .sobre__copy { font-size: 1.08rem; color: #33475b; }
+  .sobre__copy p { margin: 0 0 1.1rem; }
+  .sobre__copy .lead {
+    font-family: var(--font-display);
+    font-size: 1.28rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+    margin-top: 1.9rem;
+  }
+  .pillar {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.35rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(214, 58, 47, .35); }
+  .pillar .jp {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--coral);
+    display: block;
+    margin-bottom: .45rem;
+  }
+  .pillar h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .3rem; }
+  .pillar p { margin: 0; font-size: .92rem; color: var(--muted); }
+
+  /* ---------- Destinos ---------- */
+  .destinos__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.1rem;
+  }
+  .destino {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #e8e2d4;
+    box-shadow: var(--shadow-sm);
+    transition: transform .22s ease, box-shadow .22s ease;
+    text-decoration: none;
+  }
+  .destino:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .destino__img { aspect-ratio: 4 / 3; overflow: hidden; }
+  .destino__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+  .destino:hover .destino__img img { transform: scale(1.07); }
+  .destino__label {
+    display: flex; align-items: baseline; gap: .5rem;
+    padding: .72rem .85rem .8rem;
+    background: var(--paper);
+  }
+  .destino__label strong { font-size: .92rem; font-weight: 700; letter-spacing: .02em; }
+  .destino__label .jp { font-size: .72rem; color: var(--coral); font-weight: 700; }
+  .destino--featured { grid-column: span 1; }
+  .destino--featured .destino__label { background: var(--coral); }
+  .destino--featured .destino__label strong { color: #fff; }
+  .destino--featured .destino__label .jp { color: var(--gold-soft); }
+  .destinos__note {
+    margin-top: 1.7rem;
+    font-size: .88rem;
+    color: var(--muted);
+    display: flex; align-items: center; gap: .5rem;
+  }
+
+  /* ---------- Pacotes ---------- */
+  .pacotes__note {
+    display: inline-block;
+    background: rgba(240, 169, 46, .16);
+    border: 1px solid rgba(240, 169, 46, .5);
+    color: var(--gold-soft);
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .4rem .9rem;
+    border-radius: 999px;
+    margin-bottom: 1.3rem;
+  }
+  .pacotes__lead { font-size: 1.15rem; max-width: 56ch; }
+  .pacotes__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin: 2.6rem 0;
+  }
+  .step {
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.5rem 1.6rem;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .step:hover { transform: translateY(-4px); background: rgba(255, 255, 255, .1); }
+  .step__num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    margin-bottom: .7rem;
+  }
+  .step h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: .35rem; }
+  .step p { margin: 0; font-size: .94rem; color: rgba(255, 255, 255, .75); }
+  .pacotes__cta { text-align: center; margin-top: .6rem; }
+  .pacotes__cta p { margin: 1rem 0 0; font-size: .92rem; color: rgba(255, 255, 255, .7); }
+
+  /* ---------- Contato / Agências ---------- */
+  .agencias { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: .5rem; }
+  .agencia {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.8rem 1.8rem 1.9rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .agencia:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .agencia__logo { display: flex; align-items: center; gap: .8rem; }
+  .agencia__logo h3 { font-size: 1.35rem; font-weight: 800; letter-spacing: .01em; margin: 0; }
+  .agencia--nakasone .agencia__logo h3 { color: #111; }
+  .agencia--nakasone .slash {
+    color: var(--coral);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1;
+    transform: skewX(-14deg);
+    display: inline-block;
+  }
+  .agencia--nakasone .logo-sub { font-size: .8rem; font-weight: 600; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+  .agencia--oshiro .agencia__logo h3 { color: var(--coral); }
+  .agencia--oshiro .logo-sub { font-size: .8rem; font-weight: 600; letter-spacing: .16em; color: var(--coral); text-transform: uppercase; }
+  .agencia__addr {
+    display: flex; gap: .55rem; align-items: flex-start;
+    font-size: .93rem; color: var(--muted);
+  }
+  .agencia__addr svg { flex: none; color: var(--coral); margin-top: .2rem; }
+  .agencia .btn { justify-content: center; margin-top: auto; }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float {
+    position: fixed;
+    right: 22px; bottom: 22px;
+    z-index: 90;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: var(--wa);
+    display: grid; place-items: center;
+    box-shadow: 0 10px 26px rgba(37, 211, 102, .5);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .wa-float:hover { transform: scale(1.08); box-shadow: 0 14px 32px rgba(37, 211, 102, .6); }
+  .wa-float::after {
+    content: "";
+    position: absolute; inset: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, .45);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(.92); opacity: 1; }
+    70% { transform: scale(1.18); opacity: 0; }
+    100% { transform: scale(1.18); opacity: 0; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--ocean-950);
+    color: rgba(255, 255, 255, .8);
+    padding: 3.4rem 0 2.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: "";
+    position: absolute; inset: 0;
+    color: rgba(255, 255, 255, .045);
+  }
+  footer::before {
+    background-image:
+      radial-gradient(circle at 100% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%),
+      radial-gradient(circle at 0% 50%, transparent 21%, currentColor 22%, currentColor 35%, transparent 36%, transparent 46%, currentColor 47%, currentColor 60%, transparent 61%, transparent 71%, currentColor 72%, currentColor 85%, transparent 86%);
+    background-size: 96px 56px;
+    background-position: 0 0, 48px 0;
+  }
+  .footer__inner { position: relative; display: flex; flex-wrap: wrap; gap: 1.4rem; align-items: center; justify-content: space-between; }
+  .footer__brand { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: #fff; }
+  .footer__brand span { color: var(--gold); }
+  .footer__meta { font-size: .86rem; }
+  .footer__meta .jp { color: var(--gold-soft); }
+  .footer__bottom {
+    position: relative;
+    margin-top: 2.2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    display: flex; flex-wrap: wrap; gap: .8rem;
+    justify-content: space-between;
+    font-size: .78rem;
+    color: rgba(255, 255, 255, .5);
+  }
+  .footer__bottom a { color: rgba(255, 255, 255, .65); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--gold-soft); }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .08s; }
+  .reveal-delay-2 { transition-delay: .16s; }
+  .reveal-delay-3 { transition-delay: .24s; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .destinos__grid { grid-template-columns: repeat(4, 1fr); }
+    .destino:nth-child(n+9) { display: none; }
+  }
+  @media (max-width: 860px) {
+    .nav__links {
+      position: fixed;
+      inset: 72px 0 auto 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+      padding: .6rem 5%;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .nav__links.open { opacity: 1; transform: none; pointer-events: auto; }
+    .nav__links a { display: block; width: 100%; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+    .nav__links a::after { display: none; }
+    .nav__links .nav__cta { margin: .85rem 0 .6rem; }
+    .nav__toggle { display: block; }
+    .hero { padding: 140px 0 80px; }
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__poster { width: min(100%, 420px); margin-top: .6rem; }
+    .sobre__grid { grid-template-columns: 1fr; }
+    .sobre__intro { position: static; }
+    .sobre__intro .jp-big { font-size: clamp(3.2rem, 12vw, 5rem); }
+    .destinos__grid { grid-template-columns: repeat(3, 1fr); }
+    .destino:nth-child(n+10) { display: none; }
+    .pacotes__steps { grid-template-columns: 1fr; }
+    .agencias { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .destinos__grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+    .destino:nth-child(n+9) { display: block; }
+    .pillars { grid-template-columns: 1fr; }
+    .hero__actions .btn { width: 100%; justify-content: center; }
+    .hero__poster::before { inset: -12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="#topo" aria-label="Uchinanchu Taikai Okinawa 2027 — início">
+      <span class="brand__mark">8º</span>
+      <span class="brand__name">Uchinanchu Taikai<span>Okinawa 2027</span></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
+      <a href="#evento">O evento</a>
+      <a href="#destinos">Destinos</a>
+      <a href="#pacotes">Pacotes</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn--coral nav__cta" href="#contato">Garanta sua vaga</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow"><span class="jp">うちなんちゅ大会</span> · 8ª edição · Okinawa</p>
+        <h1>
+          <span class="line">8º <span class="red">Uchinanchu</span></span>
+          <span class="line red-dark">Taikai</span>
+          <span class="sub">Okinawa 2027</span>
+        </h1>
+        <p class="hero__tagline">Venha participar da <strong>maior festa Uchinanchu do mundo</strong> — tradição, música, dança, gastronomia e reencontros.</p>
+        <div class="hero__date">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          27 a 31 de Outubro
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--coral btn--lg" href="#contato">Garanta sua vaga</a>
+          <a class="btn btn--ghost btn--lg" href="#pacotes">Conheça os pacotes</a>
+        </div>
+        <p class="hero__note">Pacotes com <strong>vagas limitadas</strong> · previstos e sujeitos à alteração</p>
+      </div>
+
+      <div class="hero__poster reveal">
+        <span class="hero__sticker">Festa histórica</span>
+        <figure>
+          <img src="assets/poster.jpg" alt="Pôster oficial do 8º Uchinanchu Taikai Okinawa 2027 — festa de cultura okinawana com taiko, sanshin e destinos turísticos" width="1024" height="724">
+          <figcaption>8º Uchinanchu Taikai · Okinawa 2027</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <svg class="divider" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v20c-120 24-320 44-720 44S120 44 0 20V0Z"/></svg>
+
+  <!-- ============ O EVENTO ============ -->
+  <section class="section--cream" id="evento">
+    <div class="container sobre__grid">
+      <div class="sobre__intro reveal">
+        <p class="kicker">O evento</p>
+        <h2>Uma festa que atravessa gerações e oceanos</h2>
+        <div class="jp-big" aria-hidden="true">沖縄</div>
+      </div>
+      <div class="sobre__copy reveal reveal-delay-1">
+        <p class="lead">🌺 Konnichiwa! Já imaginou participar e vivenciar a maior festa Uchinanchu do mundo?</p>
+        <p>O <strong>Uchinanchu Taikai 2027</strong> será uma experiência inesquecível, reunindo descendentes e admiradores da cultura de Okinawa em uma grande festa de <strong>tradição, música, dança, gastronomia e reencontros</strong>.</p>
+        <p><strong>✨ Venha fazer parte desse momento histórico!</strong></p>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="jp" aria-hidden="true">伝統</span>
+            <h3>Tradição</h3>
+            <p>As raízes da cultura okinawana em cada detalhe da festa.</p>
+          </div>
+          <div class="pillar">
+            <span class="jp" aria-hidden="true">音楽</span>
+            <h3>Música e dança</h3>
+            <p>Taiko, sanshin e apresentações que embalam o encontro.</p>
+          </div>
+          <div class="pillar">
+            <span class="jp" aria-hidden="true">料理</span>
+            <h3>Gastronomia</h3>
+            <p>Sabores autênticos da culinária de Okinawa.</p>
+          </div>
+          <div class="pillar">
+            <span class="jp" aria-hidden="true">再会</span>
+            <h3>Reencontros</h3>
+            <p>Famílias e amigos do mundo todo celebrando juntos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DESTINOS ============ -->
+  <section class="section--paper" id="destinos">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="kicker">Destinos previstos</p>
+        <h2>Do coração de Okinawa aos cartões-postais do mundo</h2>
+        <p>Roteiros pensados para uma viagem única — de Shuri-jō às paisagens mais icônicas do planeta. <em>(Sujeitos a alteração.)</em></p>
+      </div>
+      <div class="destinos__grid">
+        <a class="destino destino--featured reveal" href="#contato" title="Okinawa — o coração do evento">
+          <div class="destino__img"><img src="assets/okinawa.jpg" alt="Castelo de Shuri, em Naha, Okinawa" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Okinawa</strong><span class="jp">沖縄</span></div>
+        </a>
+        <a class="destino reveal reveal-delay-1" href="#contato">
+          <div class="destino__img"><img src="assets/japao.jpg" alt="Monte Fuji com cerejeiras em flor" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Japão</strong><span class="jp">日本</span></div>
+        </a>
+        <a class="destino reveal reveal-delay-2" href="#contato">
+          <div class="destino__img"><img src="assets/coreia.jpg" alt="N Seoul Tower, na Coreia do Sul" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Coreia</strong><span class="jp">韓国</span></div>
+        </a>
+        <a class="destino reveal reveal-delay-3" href="#contato">
+          <div class="destino__img"><img src="assets/china.jpg" alt="Grande Muralha da China" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>China</strong><span class="jp">中国</span></div>
+        </a>
+        <a class="destino reveal" href="#contato">
+          <div class="destino__img"><img src="assets/bangkok.jpg" alt="Wat Arun, Templo do Amanhecer, em Bangkok" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Bangkok</strong><span class="jp">バンコク</span></div>
+        </a>
+        <a class="destino reveal" href="#contato">
+          <div class="destino__img"><img src="assets/taipei.jpg" alt="Taipei 101, em Taiwan" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Taipei</strong><span class="jp">台北</span></div>
+        </a>
+        <a class="destino reveal reveal-delay-1" href="#contato">
+          <div class="destino__img"><img src="assets/dubai.jpg" alt="Skyline de Dubai com o Burj Khalifa" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Dubai</strong><span class="jp">ドバイ</span></div>
+        </a>
+        <a class="destino reveal reveal-delay-2" href="#contato">
+          <div class="destino__img"><img src="assets/istambul.jpg" alt="Hagia Sophia, em Istambul" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Istambul</strong><span class="jp">イスタンブール</span></div>
+        </a>
+        <a class="destino reveal reveal-delay-3" href="#contato">
+          <div class="destino__img"><img src="assets/paris.jpg" alt="Torre Eiffel, em Paris" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Paris</strong><span class="jp">パリ</span></div>
+        </a>
+        <a class="destino reveal" href="#contato">
+          <div class="destino__img"><img src="assets/roma.jpg" alt="Coliseu, em Roma" loading="lazy" width="960" height="640"></div>
+          <div class="destino__label"><strong>Roma</strong><span class="jp">ローマ</span></div>
+        </a>
+      </div>
+      <p class="destinos__note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        Destinos previstos, sujeitos à alteração conforme a programação oficial do evento.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PACOTES ============ -->
+  <section class="section--ocean" id="pacotes">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="kicker kicker--light">Pacotes previstos</p>
+        <span class="pacotes__note">Sujeitos à alteração</span>
+        <h2>Viva o <span class="jp">Uchinanchu Taikai</span> de perto</h2>
+        <p class="pacotes__lead">Os pacotes foram preparados para proporcionar uma experiência <strong>única e inesquecível</strong> — com vagas limitadas, pensadas para quem quer viver Okinawa 2027 do jeito certo.</p>
+      </div>
+      <div class="pacotes__steps">
+        <div class="step reveal">
+          <span class="step__num">01</span>
+          <h3>Fale com a agência</h3>
+          <p>Tire suas dúvidas e receba todas as informações sobre os roteiros.</p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <span class="step__num">02</span>
+          <h3>Escolha o roteiro</h3>
+          <p>Okinawa e destinos complementares — do Japão à Europa.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <span class="step__num">03</span>
+          <h3>Garanta sua vaga</h3>
+          <p>As vagas são limitadas. Reserve a sua e garanta a experiência.</p>
+        </div>
+      </div>
+      <div class="pacotes__cta reveal">
+        <a class="btn btn--gold btn--lg" href="#contato">Quero garantir minha vaga</a>
+        <p>Atendimento em português · reservas e informações pelos canais abaixo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO / AGÊNCIAS ============ -->
+  <section class="section--cream" id="contato">
+    <div class="container">
+      <div class="section__head reveal" style="max-width: 720px;">
+        <p class="kicker">Reservas e informações</p>
+        <h2>📍 Garanta sua vaga desde já!</h2>
+        <p>Para mais informações e reservas, entre em contato conosco. Será um prazer ajudá-lo a escolher o melhor roteiro para viver o <strong>Uchinanchu Taikai 2027</strong>!</p>
+      </div>
+      <div class="agencias">
+        <div class="agencia agencia--nakasone reveal">
+          <div class="agencia__logo">
+            <h3>NAKASONE <span class="slash">/</span></h3>
+            <span class="logo-sub">Turismo</span>
+          </div>
+          <p style="margin:0; font-size:.95rem; color:var(--muted);">Agência de turismo oficial — pacotes e roteiros para Okinawa 2027.</p>
+          <p class="agencia__addr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            Rua Ingaí, 156 - Cj. 1604 - Vila Prudente/SP
+          </p>
+          <a class="btn btn--wa" href="https://wa.me/5511950947709?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Uchinanchu%20Taikai%20Okinawa%202027" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp (11) 95094-7709
+          </a>
+        </div>
+
+        <div class="agencia agencia--oshiro reveal reveal-delay-1">
+          <div class="agencia__logo">
+            <h3>OSHIRO</h3>
+            <span class="logo-sub">turismo</span>
+          </div>
+          <p style="margin:0; font-size:.95rem; color:var(--muted);">Agência de turismo oficial — pacotes e roteiros para Okinawa 2027.</p>
+          <p class="agencia__addr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            Rua Luís Pinto, 556 - Vila Carrão/SP
+          </p>
+          <a class="btn btn--wa" href="https://wa.me/5511996346957?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Uchinanchu%20Taikai%20Okinawa%202027" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp (11) 99634-6957
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer__inner">
+    <div class="footer__brand">8º <span>Uchinanchu Taikai</span> · Okinawa 2027</div>
+    <div class="footer__meta"><span class="jp">うちなんちゅ大会</span> · 27 a 31 de Outubro · A maior festa Uchinanchu do mundo</div>
+  </div>
+  <div class="container footer__bottom">
+    <span>Realização: Nakasone Turismo &amp; Oshiro Turismo — São Paulo/SP. Pacotes previstos, sujeitos à alteração.</span>
+    <span>Fotos dos destinos: Wikimedia Commons · Pôster oficial do evento</span>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/5511950947709?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Uchinanchu%20Taikai%20Okinawa%202027" target="_blank" rel="noopener" aria-label="Falar no WhatsApp — Nakasone Turismo">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
