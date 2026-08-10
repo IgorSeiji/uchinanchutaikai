@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>8º Uchinanchu Taikai Okinawa 2027 — A maior festa Uchinanchu do mundo</title>
-<meta name="description" content="Venha participar da maior festa Uchinanchu do mundo. 8º Uchinanchu Taikai Okinawa 2027 — 27 a 31 de Outubro. Pacotes com vagas limitadas. Nakasone Turismo e Oshiro Turismo.">
+<meta name="description" content="Venha participar da maior festa Uchinanchu do mundo. 8º Uchinanchu Taikai Okinawa 2027 — 27 a 31 de Outubro. Pacotes com vagas limitadas. Nakasone Turismo.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d63a2f'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' font-weight='bold' text-anchor='middle' fill='%23f7c96b'%3E8%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +128,7 @@
     font-weight: 900; font-size: 1.25rem;
     box-shadow: 0 4px 12px rgba(214, 58, 47, .35);
   }
+  .brand__logo { height: 42px; width: auto; display: block; }
   .brand__name { font-weight: 700; font-size: .98rem; line-height: 1.2; color: var(--ink); }
   .brand__name span { display: block; font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
   .nav__links { display: flex; align-items: center; gap: 1.7rem; margin-left: auto; }
@@ -435,8 +436,99 @@
   .pacotes__cta { text-align: center; margin-top: .6rem; }
   .pacotes__cta p { margin: 1rem 0 0; font-size: .92rem; color: rgba(255, 255, 255, .7); }
 
+  /* ---------- Roteiros (abas + timeline) ---------- */
+  .roteiros__tabs {
+    display: flex; flex-wrap: wrap; gap: .6rem;
+    margin-bottom: 2.4rem;
+  }
+  .roteiro-tab {
+    font-family: var(--font-body); font-weight: 700; font-size: .95rem;
+    padding: .7rem 1.3rem; border-radius: 999px; border: 2px solid var(--line);
+    background: var(--paper); color: var(--ink); cursor: pointer;
+    transition: all .2s ease;
+  }
+  .roteiro-tab:hover { border-color: var(--coral); color: var(--coral); }
+  .roteiro-tab.active {
+    background: var(--coral); border-color: var(--coral); color: #fff;
+    box-shadow: 0 6px 16px rgba(214, 58, 47, .3);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeUp .45s var(--ease); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .roteiro__head {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem;
+    background: var(--ocean-900); color: #fff;
+    border-radius: 18px; padding: 1.6rem 1.8rem; margin-bottom: 2.2rem;
+  }
+  .roteiro__title { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; line-height: 1.1; }
+  .roteiro__title span {
+    display: block; font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold-soft); margin-bottom: .25rem;
+  }
+  .roteiro__badges { display: flex; flex-wrap: wrap; gap: .55rem; margin-left: auto; }
+  .roteiro__badge {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .25);
+    padding: .42rem .85rem; border-radius: 999px;
+    font-size: .82rem; font-weight: 600; color: #fff;
+  }
+  .roteiro__badge--gold { background: var(--gold); border-color: var(--gold); color: var(--ocean-950); }
+
+  .timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+  .timeline::before {
+    content: ""; position: absolute; top: 10px; bottom: 10px; left: 27px;
+    width: 3px; border-radius: 3px;
+    background: linear-gradient(180deg, var(--coral), var(--gold), var(--ocean-700));
+  }
+  .tl-item { position: relative; padding: 0 0 1.6rem 4.4rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: 0; top: 0;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--paper); border: 3px solid var(--coral);
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
+    color: var(--coral); box-shadow: var(--shadow-sm);
+  }
+  .tl-item--gold .tl-dot { border-color: var(--gold); color: var(--gold); }
+  .tl-item--fly .tl-dot { border-color: var(--ocean-700); color: var(--ocean-700); }
+  .tl-dot--range { font-size: .74rem; letter-spacing: -.02em; }
+  .tl-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s var(--ease), box-shadow .2s ease;
+  }
+  .tl-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+  .tl-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .8rem; margin-bottom: .3rem; }
+  .tl-date {
+    font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tl-city { font-family: var(--font-display); font-weight: 800; font-size: 1.08rem; }
+  .tl-city .arrow { color: var(--coral); }
+  .tl-badge {
+    font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(214, 58, 47, .1); color: var(--coral);
+    border: 1px solid rgba(214, 58, 47, .3);
+    padding: .22rem .6rem; border-radius: 999px;
+  }
+  .tl-badge--fest { background: rgba(240, 169, 46, .14); color: #a06f10; border-color: rgba(240, 169, 46, .5); }
+  .tl-desc { margin: 0; font-size: .95rem; color: #33475b; }
+  .roteiro__note {
+    margin-top: 2rem; display: flex; gap: .6rem; align-items: flex-start;
+    background: var(--cream); border: 1px dashed var(--line);
+    border-radius: 12px; padding: 1rem 1.2rem;
+    font-size: .92rem; color: var(--muted);
+  }
+  .roteiro__note svg { flex: none; color: var(--gold); margin-top: .15rem; }
+  .roteiro__cta { text-align: center; margin-top: 2.2rem; }
+  .roteiro__cta p { margin: .9rem 0 0; font-size: .9rem; color: var(--muted); }
+
   /* ---------- Contato / Agências ---------- */
-  .agencias { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: .5rem; }
+  .agencias { display: grid; grid-template-columns: minmax(0, 580px); gap: 1.4rem; margin-top: .5rem; justify-content: center; }
   .agencia {
     background: var(--paper);
     border: 1px solid var(--line);
@@ -462,8 +554,6 @@
     display: inline-block;
   }
   .agencia--nakasone .logo-sub { font-size: .8rem; font-weight: 600; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
-  .agencia--oshiro .agencia__logo h3 { color: var(--coral); }
-  .agencia--oshiro .logo-sub { font-size: .8rem; font-weight: 600; letter-spacing: .16em; color: var(--coral); text-transform: uppercase; }
   .agencia__addr {
     display: flex; gap: .55rem; align-items: flex-start;
     font-size: .93rem; color: var(--muted);
@@ -598,13 +688,13 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <a class="brand" href="#topo" aria-label="Uchinanchu Taikai Okinawa 2027 — início">
-      <span class="brand__mark">8º</span>
-      <span class="brand__name">Uchinanchu Taikai<span>Okinawa 2027</span></span>
+    <a class="brand" href="#topo" aria-label="Nakasone Turismo — Uchinanchu Taikai Okinawa 2027">
+      <img class="brand__logo" src="assets/logo-nakasone.png" alt="Nakasone Turismo">
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
       <a href="#evento">O evento</a>
       <a href="#destinos">Destinos</a>
+      <a href="#roteiros">Roteiros</a>
       <a href="#pacotes">Pacotes</a>
       <a href="#contato">Contato</a>
       <a class="btn btn--coral nav__cta" href="#contato">Garanta sua vaga</a>
@@ -779,6 +869,1675 @@
     </div>
   </section>
 
+  <!-- ============ ROTEIROS ============ -->
+  <section class="section--paper" id="roteiros">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="kicker">Roteiros</p>
+        <h2>Sugestões de roteiro</h2>
+        <p>Itinerários preparados pela <strong>Nakasone Turismo</strong> para você viver o Uchinanchu Taikai 2027 do jeito certo.</p>
+      </div>
+
+      <div class="roteiros__tabs reveal" role="tablist" aria-label="Roteiros disponíveis">
+        <button class="roteiro-tab" data-tab="china" role="tab" aria-selected="false">China &amp; Okinawa · 17 dias</button>
+        <button class="roteiro-tab" data-tab="bancoc" role="tab" aria-selected="false">Bancoc &amp; Okinawa · 14 dias</button>
+        <button class="roteiro-tab" data-tab="coreia" role="tab" aria-selected="false">Coreia &amp; Okinawa · 14 dias</button>
+        <button class="roteiro-tab" data-tab="dubai" role="tab" aria-selected="false">Dubai &amp; Okinawa · 14 dias</button>
+        <button class="roteiro-tab" data-tab="istambul" role="tab" aria-selected="false">Istambul &amp; Okinawa · 14 dias</button>
+        <button class="roteiro-tab" data-tab="taipei" role="tab" aria-selected="false">Taipei &amp; Okinawa · 14 dias</button>
+        <button class="roteiro-tab" data-tab="paris" role="tab" aria-selected="false">Paris &amp; Okinawa · 12 dias</button>
+        <button class="roteiro-tab" data-tab="roma" role="tab" aria-selected="false">Roma &amp; Okinawa · 12 dias</button>
+        <button class="roteiro-tab" data-tab="okinawa" role="tab" aria-selected="false">Okinawa · 10 dias</button>
+        <button class="roteiro-tab" data-tab="okinawa-toquio" role="tab" aria-selected="false">Okinawa &amp; Tóquio · 13 dias</button>
+        <button class="roteiro-tab" data-tab="ishigaki" role="tab" aria-selected="false">Okinawa, Ishigaki &amp; Tóquio · 16 dias</button>
+        <button class="roteiro-tab" data-tab="tohoku" role="tab" aria-selected="false">Okinawa, Tohoku &amp; Tóquio · 16 dias</button>
+        <button class="roteiro-tab" data-tab="rota-classica" role="tab" aria-selected="false">Okinawa &amp; Rota Clássica · 17 dias</button>
+      </div>
+
+      <!-- ROTEIRO CHINA &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-china" role="tabpanel" aria-label="Roteiro China &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            CHINA &amp; OKINAWA · 17 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 17/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">17/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">18/10 (2ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Embarque em voo com destino a Pequim com conexão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">19/10 (3ª. feira) – <span class="arrow">→</span> PEQUIM</div>
+              <p class="tl-desc">Chegada a Pequim, capital da China, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">20/10 (4ª. feira) – PEQUIM</div>
+              <p class="tl-desc">Dia de passeio com visita ao PALÁCIO IMPERIAL (Cidade Proibida),centro do poder e residência do imperador por quase 500 anos, PRAÇA TIAN AN MEN, uma das maiores praças públicas do mundo, PALÁCIO DE VERÃO, antigo jardim de verão da casa imperial da Dinastia Qing, a última dinastia chinesa (1644–1912).</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                
+              </div>
+              <div class="tl-city">21/10 (5ª. feira) – PEQUIM</div>
+              <p class="tl-desc">Dia de passeio à GRANDE MURALHA, que tem mais de 2.000 anos de existência cruzando o pais de leste a oeste com uma extensão de 21 mil quilômetros.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – PEQUIM</div>
+              <p class="tl-desc">Dia de visita incluindo: TEMPLO DO CÉU, local onde imperadores ofereciam sacrifícios ao Céu e rezavam por boas colheitas, HUTONGS, bairros históricos com vielas estreitas, com passeio de riquixá, LOJA DE CHÁ (processo de fabricação e degustação), PARQUE SHOUGANG, com visita à base de treinamento e lojas de robôs.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">23/10 (sábado) – PEQUIM <span class="arrow">→</span> XANGAI</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Xangai. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – XANGAI</div>
+              <p class="tl-desc">Dia de passeio conhecendo: OBSERVATÓRIO DA TORRE DE XANGAI, de 632 metros de altura, e THE BUND, onde se encontram algumas das cinstruções mais emblemáticas da cidade. Continuação para a CIDADE ANTIGA visitando JARDIM YUYUAN, conhecido como “Jardim da Felicidade”, construído em 1559, e TEMPLO DO BUDA DE JADE, erguido em 1882. À noite, CRUZEIRO PELO RIO HUANGPU.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SHANGHAI</div>
+              <p class="tl-desc">Dia de visita incluindo: MUSEU DE XANGAI, que expõe uma das melhores coleções de arte da China, NANJING ROAD, a “Avenida Comercial nº 1 da China” e uma FÁBRICA DE SEDA.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 10</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – XANGAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">11-15</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11 a 15</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">16</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 16</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO BANCOC &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-bancoc" role="tabpanel" aria-label="Roteiro Bancoc &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            BANCOC &amp; OKINAWA · 14 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 20/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">20/10 (4ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">21/10 (5ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Embarque em voo com destino a Bancoc com conexão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – <span class="arrow">→</span> BANCOC</div>
+              <p class="tl-desc">Chegada a Bancoc, capital da Tailândia, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – BANCOC</div>
+              <p class="tl-desc">Dia de passeio com visita a WAT TRAIMIT, templo que abriga a maior imagem de Buda de ouro maciço do mundo, WAT PHO, templo do Buda Reclinado de 46 metros de comprimento, e ao GRANDE PALÁCIO, antiga residência oficial dos reis tailandeses (séc.18 a 20) que abriga o Buda de Esmeralda.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – BANCOC / AYUTTHAYA / BANCOC</div>
+              <p class="tl-desc">Saída do hotel rumo a Ayutthaya, antiga capital do Reino de Sião (nome anterior da Tailândia) para conhecer WAT PHRA SI SANPHET, conhecido por sua fila de chedis (monumentos em forma de sino), VIHARN PHRA MONGKOL BOPIT, templo que contém uma enorme estátua de Buda, WAT CHAI WATTANARAM, o templo principal e WAT YAI CHAIMONKOL, o monumento budista mais alto da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                
+              </div>
+              <div class="tl-city">BANCOC / MERCADO DE TRENS / MERCADO FLUTUANTE / BANCOC</div>
+              <p class="tl-desc">Dia de passeio visitando: MERCADO DE TRENS, tradicional feira montada sobre os trilhos de uma estação de trem, onde os comerciantes fecham as barracas quando o veículo se aproxima e reabre após sua passagem, e o MERCADO FLUTUANTE, onde vendedores em barcos tradicionais comercializam frutas exóticas, artesanatos e comidas típicas feitas na hora.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – BANCOC <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">8-12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8 a 12</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO COREIA &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-coreia" role="tabpanel" aria-label="Roteiro Coreia &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            COREIA &amp; OKINAWA · 14 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 20/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">20/10 (4ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">21/10 (5ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Embarque em voo com destino a Seul com conexão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – <span class="arrow">→</span> SEUL</div>
+              <p class="tl-desc">Chegada a Seul, capital da Coreia do Sul, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – SEUL</div>
+              <p class="tl-desc">Dia de passeio incluindo visita ao MONTE NAMSAM &amp; TORRE DE SEUL (262 metros de altura), PALÁCIO CHAMGDEOKGUNG, um dos cinco grandes palácios de Seul e onde se encontra o Jardim Secreto, BAIRRO DE GANGNAM, distrito luxuoso e famoso pelo hit global “Gangnam Style”, COEX MALL, shopping que abriga a impressionante biblioteca STARFIELD LIBRARY com suas estantes gigantes de 13 metros de altura.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – SEUL</div>
+              <p class="tl-desc">Dia de passeio para conhecer: PALÁCIO GYEONGBOKGUNG, o maior entre os “Cinco Grandes Palácios” da Dinastia Joseon (1392 a 1897) e participar da CERIMÔNIA DE TROCA DA GUARDA REAL, BUCKCHEON HANOK VILLAGE, vila histórica com casas tradicionais coreanas com mais de 600 anos, e o DONGDAEMUN DESIGN PLAZA, o maior edifício tridimensional do mundo.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SEUL / ILHA NAMI / SEUL</div>
+              <p class="tl-desc">Saída rumo ao JARDIM DA MANHÃ CALMA, refúgio botânico com seus mais de vinte jardins temáticos. Prosseguimento para a ILHA NAMI, pequena ilha fluvial no Rio Han em formato de meia-lua. Retorno a Seul.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – SEUL <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">8-12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8 a 12</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO DUBAI &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-dubai" role="tabpanel" aria-label="Roteiro Dubai &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            DUBAI &amp; OKINAWA · 14 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 20/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">20/10 (4ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">21/10 (5ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – DUBAI</div>
+              <p class="tl-desc">Chegada a Dubai, um dos sete estados dos Emirados Árabes Unidos, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – DUBAI</div>
+              <p class="tl-desc">Manhã livre. Em horário adequado, saída para um SAFÁRI NO DESERTO com jantar.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – DUBAI</div>
+              <p class="tl-desc">Dia de visita incluindo: MESQUITA JUMEIRAH, mistura de estilos arquitetôncos islâmicos históricos; PALÁCIO ZABEEL, sede do governo de Dubai; BAIRRO AL FAHID (panorâmico) que abriga o Al Fahid Fort, construção icônica; TRAVESSIA DE ABRA (passeio de barco de madeira cruzando o canal Dubai Creek); MERCADO DE OURO, maior mercado de ouro do mundo; MERCADO MADINAT, mercado tradicional árabe; MARINA DE DUBAI, canal artificial cercado por arranha-céus futuristas; DUBAI MALL, maior destino de compras, entretenimento e lazer do mundo; e BURJ KHALIFA AT THE TOP, edifício mais alto do mundo com 828 metros de altura e 163 andares.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – DUBAI / ABU DHABI / DUBAI</div>
+              <p class="tl-desc">Dia de passeio em Abu Dhabi, a capital dos Emirados Árabes Unidos, iniciando com passagem por CORNICHE, calçadão à beira-mar, e EMIRATES PALACE, único hotel com conceito de palácio dos Emirados Árabes com decoração tradicional e extravagante. Continuação para conhecer a MESQUITA SHEIK ZAYED, revestida em mármore, detalhada em ouro e com cristais Swarovski e vidros de Murano, e, a seguir, para o PARQUE FERRARI WORLD, maior parque temático do mundo, localizado na Ilha de Yas.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">8-12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8 a 12</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO ISTAMBUL &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-istambul" role="tabpanel" aria-label="Roteiro Istambul &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            ISTAMBUL &amp; OKINAWA · 14 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 20/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">20/10 (4ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">21/10 (5ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Embarque em voo com destino a Istambul com conexão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – <span class="arrow">→</span> ISTAMBUL</div>
+              <p class="tl-desc">Chegada a Istambul, capital da Turquia, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – ISTAMBUL</div>
+              <p class="tl-desc">Dia de passeio com visita ao PALÁCIO TOPKAPI, residência dos sultões entre 1478 e 1856, HIPÓDROMO ROMANO, onde aconteciam corridas de quadrigas e eventos que divertiram os habitantes de Constantinopla por mais de mil anos, MESQUITA AZUL, admirada por seus seis altos minaretes, terraços e cúpulas que marcam o centro da construção, e BASÍLICA DE SANTA SOFIA, um dos monumentos mais significativos de Istambul e uma magnífica maravilha arquitetônica, considerada uma das igrejas mais grandiosas e imponentes do mundo.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – ISTAMBUL</div>
+              <p class="tl-desc">Início do dia com CRUZEIRO PELO ESTREITO DE BÓSFORO, canal natural de água que liga o Mar Negro ao Mar de Mármara. Prosseguimento para conhecer o PALÁCIO BEYLERBEYI, antiga residência dos sultões do Império Otomano (1299 a 1922), e a COLINA CAMLICA que, estando a 288 metros acima do mar, é o ponto mais alto de Istambul, oferecendo vistas de 360 graus da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – ISTAMBUL</div>
+              <p class="tl-desc">Dia de passeio visitando: MESQUITA SULEYMANIYE (construída no séc.16) que oferece vistas deslumbrantes da cidade, o BAZAR EGÍPCIO, mercado histórico que vende uma grande variedade de especiarias, chás, doces turcos (como o lokun, ou goma árabe), frutos secos, queijos, azeites, óleos essenciais, sabonetes artesanais e lembrancinhas de viagem, e o GRANDE BAZAR, aberto em 1461, é, possivelmente, o maior e um dos mais antigos mercados cobertos do mundo, sendo conhecido principalmente pela joalheria, cerâmica, especiarias e tapetes.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – ISTAMBUL <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">8-12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8 a 12</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO TAIPEI &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-taipei" role="tabpanel" aria-label="Roteiro Taipei &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            TAIPEI &amp; OKINAWA · 14 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 20/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">20/10 (4ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">21/10 (5ª. feira) – SÃO PAULO</div>
+              <p class="tl-desc">Embarque em voo com destino a Taipei com conexão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – <span class="arrow">→</span> TAIPEI</div>
+              <p class="tl-desc">Chegada a Taipei, capital da Taiwan, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – TAIPEI</div>
+              <p class="tl-desc">Dia de passeio incluindo: MEMORIAL CHANG KAI- SHEK, monumento nacional do país, construído em homenagem ao ex-presidente; TEMPLO LOSHAN, templo budista do século 18 que mescla o budismo com o taoísmo e o confucionismo; OBSERVATÓRIO TORRE 101, um dos mirantes mais altos do mundo, localizado a 449 metros acima do solo; e NATIONAL PALACE MUSEUM, museu que conta com artefatos que narram 8.000 anos de história chinesa.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – TAIPEI / KAOHSIUNG / TAIPEI</div>
+              <p class="tl-desc">Dia de passeio incluindo: MONTANHA MAOKONG, famoso pelas plantações de chá e incríveis vistas panorâmicas da cidade; FAZENDA DE CHÁ, e HUASHAN 1914 CREATIVE PARK, espaço de exposições e apresentaçãoes artísticas e culturais, bares de cerveja artesanal e restaurantes.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – TAIPEI</div>
+              <p class="tl-desc">Dia de passeio em Kaohsiung, cidade portuária, para conhecer: MONASTÉRIO FO GUANG SHAN, complexo que é sede mundial da ordem budista humanista e uma das maiores instituições de caridade do país; KAOHSIUNG DRAGON &amp; TIGER PAGODAS, conhecidos pelas pinturas celestiais e infernais em seu interior e cores vibrantes nas torres gêmeas; e DOME OF LIGHT, cúpula de luz formada por 4.500 peças de vidro, onde são apresentadas artes que narram a história da humanidade.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – TAIPEI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">8-12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8 a 12</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO PARIS &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-paris" role="tabpanel" aria-label="Roteiro Paris &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            PARIS &amp; OKINAWA · 12 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 22/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – SÃO PAULO <span class="arrow">→</span> PARIS</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos. Embarque em voo com destino a Paris.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – PARIS</div>
+              <p class="tl-desc">Chegada a Paris, recepção e traslado ao hotel. À noite, CRUZEIRO PELO RIO SENA com jantar.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – PARIS</div>
+              <p class="tl-desc">Dia de passeio incluindo: a TORRE EIFFEL, símbolo da capital francesa, o MUSEU DO LOUVRE, um dos maiores e mais prestigiados museus do mundo, CHAMPS-ELYSÉES, uma das mas famosas e elegantes avenidas da cidade, o ARCO DO TRIUNFO, monumento que representa as vitórias do exército francês sob as ordens de Napoleão, que ordenou sua construção; a CATEDRAL DE NOTRE DAME, uma das mais antigas catedrais francesas em estilo gótico cuja construção começou em 1163; MONTMARTRE, icônico e charmoso bairro boêmio de Paris, e a BASÍLICA DO SAGRADO CORAÇÃO (Sacré-Cœur), templo católico localizado no topo da colina de Montmartre, o ponto mais alto de Paris, que é conhecida por sua cúpula branca e arquitetura romano-bizantina.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">PARIS / VERSALHES / GIVERNY / PARIS</div>
+              <p class="tl-desc">Dia de passeio visitando: o PALÁCIO DE VERSALHES, um dos monumentos mais impressionantes da França que combina arte, arquitetura e paisagismo, e CASA &amp; JARDIM DE MONET, no vilarejo bucólico de Giverny, onde o pintor impressionista francês Claude Monet (1840-1926) iniciou o seu próprio jardim.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – PARIS <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">6-10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6 a 10</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">11</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO ROMA &amp; OKINAWA -->
+      <div class="tab-panel" id="tab-roma" role="tabpanel" aria-label="Roteiro Roma &amp; Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            ROMA &amp; OKINAWA · 12 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 22/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">22/10 (6ª. feira) – SÃO PAULO <span class="arrow">→</span> ROMA</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos. Embarque em voo com destino a Paris.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                
+              </div>
+              <div class="tl-city">23/10 (sábado) – ROMA</div>
+              <p class="tl-desc">Chegada a Roma, recepção e traslado para um brunch. A seguir, visita ao COLISEU, o maior anfiteatro do mundo antigo, construído entre 70 d.C. e 80 d.C. para abrigar lutas de gladiadores e espetáculos públicos; o FÓRUM ROMANO, espaço que na Roma Antiga (construído no final do século 7º a.C.), funcionava como uma praça central onde se concentravam a vida política, comercial, religiosa e jurídica da cidade; e PALATINO, uma das áreas mais antigas de Roma, onde se encontram as ruínas dos templos e dos palácios dos imperadores romanos que viviam ali. Término do passeio no hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                
+              </div>
+              <div class="tl-city">24/10 (domingo) – ROMA</div>
+              <p class="tl-desc">Dia de passeio incluindo: PIAZZA NAVONA, uma das praças barrocas mais famosas e animadas de Roma, construída no século 1º sobre as ruínas do antigo Estádio de Domiciano, que era de uso público do povo de Roma, especialmente para competições atléticas; FONTANA DE TREVI, obra-prima da arquitetura italiana que encanta por sua beleza, imponência e famosa pela tradição de de jogar moedas em suas águas para a realização de desejos; PANTEÃO, edifício mais preservado da Roma antiga cuja construção foi realizada na época do Imperador Adriano, no ano 126 d.C. que servia como um templo religioso dedicado a todos os deuses da mitologia romana; e PIAZZA DE SPAGNA, famosa por sua escadaria e servir de passagem para vários pontos turísticos em Roma.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – ROMA / VATICANO / ROMA</div>
+              <p class="tl-desc">Dia de passeio no VATICANO, sede da Igreja Católica e o menor país independente do mundo em área (0,44 km²) e população, que está localizado inteiramente dentro da cidade de Roma. Visita aos MUSEUS DO VATICANO, que contêm mais de 70.000 peças históricas; e à CAPELA SISTINA que abriga os famosos afrescos de Michelangelo, como A Criação de Adão e O Juízo Final; e a BASÍLICA DE SÃO PEDRO, onde está a obra-prima Pietá de Michelangelo.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – ROMA <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">6-10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6 a 10</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">11</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Check-out do hotel e traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO OKINAWA -->
+      <div class="tab-panel" id="tab-okinawa" role="tabpanel" aria-label="Roteiro Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            OKINAWA · 10 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Ao chegar, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27/10 (4ª. feira) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">28/10 (5ª. feira) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">29/10 (6ª. feira) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">30/10 (sábado) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">31/10 (domingo) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Saída do hotel e traslado para o aeroporto. Embarque em voo para São Paulo. WhatsApp: 11-950947709 WhatsApp: 11-996346957</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Nota:</strong> consulte opcionais de passeios nos dias livres.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO OKINAWA &amp; TÓQUIO -->
+      <div class="tab-panel" id="tab-okinawa-toquio" role="tabpanel" aria-label="Roteiro Okinawa &amp; Tóquio">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            OKINAWA &amp; TÓQUIO · 13 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">4-8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4 a 8</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> TÓQUIO</div>
+              <p class="tl-desc">Saída do hotel e traslado para o aeroporto. Embarque em voo para Tóquio. Chegada, reçepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 10</span>
+                
+              </div>
+              <div class="tl-city">02/11 (3ª. feira) – TÓQUIO</div>
+              <p class="tl-desc">Dia de passeio com visita a ASAKUSA KANNON, templo mais antigo da cidade, TOKYO SKYTREE, observatório a 350 metros de altura, e GINZA, famoso distrito de compras da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">11</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11</span>
+                
+              </div>
+              <div class="tl-city">03/11 (4ª. feira) – TÓQUIO</div>
+              <p class="tl-desc">Dia livre.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 12</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">04/11 (5ª. feira) – TÓQUIO <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Late check-out. À noite, traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO OKINAWA, ISHIGAKI &amp; TÓQUIO -->
+      <div class="tab-panel" id="tab-ishigaki" role="tabpanel" aria-label="Roteiro Okinawa, Ishigaki &amp; Tóquio">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            OKINAWA, ISHIGAKI &amp; TÓQUIO · 16 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">4-8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4 a 8</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">OKINAWA <span class="arrow">→</span> ILHA DE ISHIGAKI</div>
+              <p class="tl-desc">Embarque em voo para a Ilha de Ishigaki. Chegada, reçepção e traslado ao hotel. Tarde livre.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 10</span>
+                
+              </div>
+              <div class="tl-city">02/11 (3ª. feira) – ILHA DE ISHIGAKI</div>
+              <p class="tl-desc">Dia de visita conhecendo o OBSERVATÓRIO TAMATORIZAKI, de onde se pode ter vistas deslumbrantes do Oceano Pacífico e do Mar da China Oriental, YAEYAMA PALM FOREST MAEBARA, cujas palmeiras são encontradas apenas nas ilhas de Yaeyama e Iriomote, e KABIRA BAY, de beleza cênica, é famosa pelas suas areias brancas, águas azul- turquesa e vegetação densa.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">11</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11</span>
+                
+              </div>
+              <div class="tl-city">ILHA DE ISHIGAKI / ILHA DE TAKETOMI / ILHA DE ISHIGAKI</div>
+              <p class="tl-desc">Dia de passeio na Ilha de Taketomi incluindo KONDOI BEACH, a melhor e mais famosa praia da ilha com águas rasas de um verde-esmeralda, céus de um azul intenso e areias brancas e brilhantes, KAIJI BEACH, conhecida pela sua rara areia em formato de estrela, experiência em andar de CHARRETE PUXADO POR BÚFALO D&#x27;ÁGUA, e OBSERVATÓRIO AKAYAMA, mirante panorâmico.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 12</span>
+                
+              </div>
+              <div class="tl-city">ILHA DE ISHIGAKI <span class="arrow">→</span> TÓQUIO</div>
+              <p class="tl-desc">Em horário adequado, traslado ao aeroporto. Embarque em voo com destino a Tóquio. Chegada, recepção e traslado ao hotel. Tarde livre.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                
+              </div>
+              <div class="tl-city">05/11 (6ª. feira) – TÓQUIO</div>
+              <p class="tl-desc">Dia de passeio com visita a ASAKUSA KANNON, templo mais antigo da cidade, TOKYO SKYTREE, observatório a 350 metros de altura, e GINZA, famoso distrito de compras da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">14</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 14</span>
+                
+              </div>
+              <div class="tl-city">06/11 (sábado) – TÓQUIO</div>
+              <p class="tl-desc">Dia livre.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">15</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 15</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">07/11 (domingo) – TÓQUIO <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Late check-out. À noite, traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO OKINAWA, TOHOKU &amp; TÓQUIO -->
+      <div class="tab-panel" id="tab-tohoku" role="tabpanel" aria-label="Roteiro Okinawa, Tohoku &amp; Tóquio">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            OKINAWA, TOHOKU &amp; TÓQUIO · 16 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">4-8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4 a 8</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SENDAI</div>
+              <p class="tl-desc">Saída do hotel e traslado para o aeroporto. Embarque em voo para Sendai. Chegada, reçepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 10</span>
+                
+              </div>
+              <div class="tl-city">02/11 (3ª. feira) – SENDAI / MORIOKA</div>
+              <p class="tl-desc">Dia de passeio incluindo cruzeiro pela BAÍA DE MATSUSHIMA, considerada uma das três vistas mais belas do Japão, NARUKO GORGE, umas das mais cênicas gargantas da região de Tohoku, parada em NARUKOKYO RESTHOUSE para uma vista à famosa PONTE OFUKAZAWA, JAPAN KOKESHI MUSEUM, museu de bonecos tradicionais feitos em madeira. Término do dia no hotel em Morioka.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">11</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11</span>
+                
+              </div>
+              <div class="tl-city">03/11 (4ª. feira) – MORIOKA / FAZENDA KOIWAI / KAKUNODATE / MORIOKA</div>
+              <p class="tl-desc">Dia de visita para conhecer TAKAMATSU POND, um refúgio relaxante, com vida selvagem e vistas do Monte Iwate, KOIWAI FARM, uma fazenda leiteira, KAKUNODATE, antigo bairro de samurais, VILA MORIOKA TEZUKURI com participação em workshop, e FÁBRICA DE SAQUÊ.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 12</span>
+                
+              </div>
+              <div class="tl-city">04/11 (5ª. feira) – MORIOKA / KORIYAMA / AIZU</div>
+              <p class="tl-desc">WAKAMATSU / KORIYAMA / BANDAI ATAMI ONSEN Saída do hotel e traslado à estação. Embarque para Koriyama. Chegada e visita a OUCHIJUKU, vila famosa pelas construções de casas tradicionais de palha. Continuação para Aizuwakamatsu para conhecer o CASTELO DE TSURUGA, um dos últimos redutos de samurais leais ao xogunato. Término do dia no hotel (ryokan).</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                
+              </div>
+              <div class="tl-city">05/11 (6ª. feira) – BANDAI ATAMO ONSEN / NIKKO</div>
+              <p class="tl-desc">/ TÓQUIO Saída do hotel e visita a MONTE NASU com subida ao topo de teleférico. Prosseguimento para Nikko para conhecer o SANTUÁRIO NIKKO TOSHOGU, dedicado a Tokugawa Ieyasu, um dos maiores xoguns da história do Japão, terminando o dia no hotel em Tóquio.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">14</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 14</span>
+                
+              </div>
+              <div class="tl-city">06/11 (sábado) – TÓQUIO</div>
+              <p class="tl-desc">Dia de passeio visitando ASAKUSA KANNON, templo mais antigo da cidade, TOKYO SKYTREE, observatório a 350 metros de altura, e GINZA, famoso distrito de compras da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">15</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 15</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">07/11 (domingo) – TÓQUIO <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Late check-out. À noite, traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+      <!-- ROTEIRO OKINAWA &amp; ROTA CLÁSSICA -->
+      <div class="tab-panel" id="tab-rota-classica" role="tabpanel" aria-label="Roteiro Okinawa &amp; Rota Clássica">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            OKINAWA &amp; ROTA CLÁSSICA · 17 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--range tl-dot--gold">4-8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4 a 8</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27 a 31/10 – OKINAWA</div>
+              <p class="tl-desc">Dias livres. Durante esse período será realizado o 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> OSAKA</div>
+              <p class="tl-desc">Embarque em voo para Osaka. Chegada, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">10</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 10</span>
+                
+              </div>
+              <div class="tl-city">02/11 (3ª. feira) – OSAKA</div>
+              <p class="tl-desc">Dia de visita conhecendo CASTELO DE OSAKA, marco mais proeminente da cidade, DOTOMBORI, bairro de entretenimento colorido e movimentado, e OBSERVATÓRIO DO EDIFÍCIO UMEDA SKY que oferece uma vista panorâmica de 360° a 173 metros de altura.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">11</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 11</span>
+                
+              </div>
+              <div class="tl-city">03/11 (4ª. feira) – OSAKA / NARA / QUIOTO</div>
+              <p class="tl-desc">Dia de passeio iniciando pela cidade de NARA para conhecer o seu PARQUE, onde circulam cervos que são considerados animais sagrados e protegidos como tesouro nacional, e o TEMPLO TODAIJI que abriga DAIBUTSU, um imenso Buda de bronze. Continuação para Quioto. Ao chegar, visita ao SANTUÁRIO FUSHIMI INARI, famoso pelos seus milhares de toriis (portais tradicionais) vermelhos. Término do dia no hotel em Quioto.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">12</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 12</span>
+                
+              </div>
+              <div class="tl-city">04/11 (5ª. feira) – QUIOTO</div>
+              <p class="tl-desc">Dia de visita incluindo o TEMPLO KINKAKUJI, conhecido como “Pavilhão Dourado”, KIYOMIZU- DERA, templo situado no topo de uma pequena montanha, com sua bela varanda apoiada em colunas de madeira que oferece uma espetacular vista da cidade e MERCADO NISHIKI, maior mercado de alimentos da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">13</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 13</span>
+                
+              </div>
+              <div class="tl-city">05/11 (6ª. feira) – QUIOTO / TÓQUIO</div>
+              <p class="tl-desc">Saída do hotel rumo à estação. Embarque em trem- bala com destino a Tóquio. Chegada e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">14</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 14</span>
+                
+              </div>
+              <div class="tl-city">06/11 (sábado) – TÓQUIO</div>
+              <p class="tl-desc">Dia de passeio visitando ASAKUSA KANNON, templo mais antigo da cidade, TOKYO SKYTREE, observatório a 350 metros de altura, e GINZA, famoso distrito de compras da cidade.</p>
+            </div>
+          </li>
+          <li class="tl-item">
+            <span class="tl-dot">15</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 15</span>
+                
+              </div>
+              <div class="tl-city">07/11 (domingo) – TÓQUIO</div>
+              <p class="tl-desc">Dia livre.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">16</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 16</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">08/11 (segunda) – TÓQUIO <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Late check-out. À noite, traslado ao aeroporto. Embarque para São Paulo.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Roteiro válido</strong> para grupo com mínimo de 20 passageiros.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CONTATO / AGÊNCIAS ============ -->
   <section class="section--cream" id="contato">
     <div class="container">
@@ -793,7 +2552,7 @@
             <h3>NAKASONE <span class="slash">/</span></h3>
             <span class="logo-sub">Turismo</span>
           </div>
-          <p style="margin:0; font-size:.95rem; color:var(--muted);">Agência de turismo oficial — pacotes e roteiros para Okinawa 2027.</p>
+          <p style="margin:0; font-size:.95rem; color:var(--muted);">Agência de turismo — pacotes e roteiros para Okinawa 2027.</p>
           <p class="agencia__addr">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
             Rua Ingaí, 156 - Cj. 1604 - Vila Prudente/SP
@@ -801,22 +2560,6 @@
           <a class="btn btn--wa" href="https://wa.me/5511950947709?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Uchinanchu%20Taikai%20Okinawa%202027" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             WhatsApp (11) 95094-7709
-          </a>
-        </div>
-
-        <div class="agencia agencia--oshiro reveal reveal-delay-1">
-          <div class="agencia__logo">
-            <h3>OSHIRO</h3>
-            <span class="logo-sub">turismo</span>
-          </div>
-          <p style="margin:0; font-size:.95rem; color:var(--muted);">Agência de turismo oficial — pacotes e roteiros para Okinawa 2027.</p>
-          <p class="agencia__addr">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-            Rua Luís Pinto, 556 - Vila Carrão/SP
-          </p>
-          <a class="btn btn--wa" href="https://wa.me/5511996346957?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Uchinanchu%20Taikai%20Okinawa%202027" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            WhatsApp (11) 99634-6957
           </a>
         </div>
       </div>
@@ -832,7 +2575,7 @@
     <div class="footer__meta"><span class="jp">うちなんちゅ大会</span> · 27 a 31 de Outubro · A maior festa Uchinanchu do mundo</div>
   </div>
   <div class="container footer__bottom">
-    <span>Realização: Nakasone Turismo &amp; Oshiro Turismo — São Paulo/SP. Pacotes previstos, sujeitos à alteração.</span>
+    <span>Realização: Nakasone Turismo — São Paulo/SP. Pacotes previstos, sujeitos à alteração.</span>
     <span>Fotos dos destinos: Wikimedia Commons · Pôster oficial do evento</span>
   </div>
 </footer>
@@ -861,6 +2604,25 @@
       links.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     }
+  });
+
+  /* ---------- ABAS DE ROTEIROS ---------- */
+  document.querySelectorAll('.roteiro-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.roteiro-tab').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById('tab-' + btn.dataset.tab);
+      if (panel) {
+        panel.classList.add('active');
+        // reveals inside hidden panels never got observed (display:none skips IO) — force visible
+        panel.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+      }
+    });
   });
 
   // Reveal on scroll
