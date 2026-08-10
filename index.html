@@ -788,43 +788,43 @@
         <p>Roteiros pensados para uma viagem única — de Shuri-jō às paisagens mais icônicas do planeta. <em>(Sujeitos a alteração.)</em></p>
       </div>
       <div class="destinos__grid">
-        <a class="destino destino--featured reveal" href="#contato" title="Okinawa — o coração do evento">
+        <a class="destino destino--featured reveal" href="#roteiros" data-roteiro="okinawa" title="Okinawa — o coração do evento">
           <div class="destino__img"><img src="assets/okinawa.jpg" alt="Castelo de Shuri, em Naha, Okinawa" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Okinawa</strong><span class="jp">沖縄</span></div>
         </a>
-        <a class="destino reveal reveal-delay-1" href="#contato">
+        <a class="destino reveal reveal-delay-1" href="#roteiros" data-roteiro="okinawa-toquio">
           <div class="destino__img"><img src="assets/japao.jpg" alt="Monte Fuji com cerejeiras em flor" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Japão</strong><span class="jp">日本</span></div>
         </a>
-        <a class="destino reveal reveal-delay-2" href="#contato">
+        <a class="destino reveal reveal-delay-2" href="#roteiros" data-roteiro="coreia">
           <div class="destino__img"><img src="assets/coreia.jpg" alt="N Seoul Tower, na Coreia do Sul" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Coreia</strong><span class="jp">韓国</span></div>
         </a>
-        <a class="destino reveal reveal-delay-3" href="#contato">
+        <a class="destino reveal reveal-delay-3" href="#roteiros" data-roteiro="china">
           <div class="destino__img"><img src="assets/china.jpg" alt="Grande Muralha da China" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>China</strong><span class="jp">中国</span></div>
         </a>
-        <a class="destino reveal" href="#contato">
+        <a class="destino reveal" href="#roteiros" data-roteiro="bancoc">
           <div class="destino__img"><img src="assets/bangkok.jpg" alt="Wat Arun, Templo do Amanhecer, em Bangkok" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Bangkok</strong><span class="jp">バンコク</span></div>
         </a>
-        <a class="destino reveal" href="#contato">
+        <a class="destino reveal" href="#roteiros" data-roteiro="taipei">
           <div class="destino__img"><img src="assets/taipei.jpg" alt="Taipei 101, em Taiwan" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Taipei</strong><span class="jp">台北</span></div>
         </a>
-        <a class="destino reveal reveal-delay-1" href="#contato">
+        <a class="destino reveal reveal-delay-1" href="#roteiros" data-roteiro="dubai">
           <div class="destino__img"><img src="assets/dubai.jpg" alt="Skyline de Dubai com o Burj Khalifa" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Dubai</strong><span class="jp">ドバイ</span></div>
         </a>
-        <a class="destino reveal reveal-delay-2" href="#contato">
+        <a class="destino reveal reveal-delay-2" href="#roteiros" data-roteiro="istambul">
           <div class="destino__img"><img src="assets/istambul.jpg" alt="Hagia Sophia, em Istambul" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Istambul</strong><span class="jp">イスタンブール</span></div>
         </a>
-        <a class="destino reveal reveal-delay-3" href="#contato">
+        <a class="destino reveal reveal-delay-3" href="#roteiros" data-roteiro="paris">
           <div class="destino__img"><img src="assets/paris.jpg" alt="Torre Eiffel, em Paris" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Paris</strong><span class="jp">パリ</span></div>
         </a>
-        <a class="destino reveal" href="#contato">
+        <a class="destino reveal" href="#roteiros" data-roteiro="roma">
           <div class="destino__img"><img src="assets/roma.jpg" alt="Coliseu, em Roma" loading="lazy" width="960" height="640"></div>
           <div class="destino__label"><strong>Roma</strong><span class="jp">ローマ</span></div>
         </a>
@@ -879,6 +879,7 @@
       </div>
 
       <div class="roteiros__tabs reveal" role="tablist" aria-label="Roteiros disponíveis">
+        <button class="roteiro-tab active" data-tab="okinawa" role="tab" aria-selected="true">Okinawa · 10 dias</button>
         <button class="roteiro-tab" data-tab="china" role="tab" aria-selected="false">China &amp; Okinawa · 17 dias</button>
         <button class="roteiro-tab" data-tab="bancoc" role="tab" aria-selected="false">Bancoc &amp; Okinawa · 14 dias</button>
         <button class="roteiro-tab" data-tab="coreia" role="tab" aria-selected="false">Coreia &amp; Okinawa · 14 dias</button>
@@ -887,12 +888,136 @@
         <button class="roteiro-tab" data-tab="taipei" role="tab" aria-selected="false">Taipei &amp; Okinawa · 14 dias</button>
         <button class="roteiro-tab" data-tab="paris" role="tab" aria-selected="false">Paris &amp; Okinawa · 12 dias</button>
         <button class="roteiro-tab" data-tab="roma" role="tab" aria-selected="false">Roma &amp; Okinawa · 12 dias</button>
-        <button class="roteiro-tab" data-tab="okinawa" role="tab" aria-selected="false">Okinawa · 10 dias</button>
         <button class="roteiro-tab" data-tab="okinawa-toquio" role="tab" aria-selected="false">Okinawa &amp; Tóquio · 13 dias</button>
         <button class="roteiro-tab" data-tab="ishigaki" role="tab" aria-selected="false">Okinawa, Ishigaki &amp; Tóquio · 16 dias</button>
         <button class="roteiro-tab" data-tab="tohoku" role="tab" aria-selected="false">Okinawa, Tohoku &amp; Tóquio · 16 dias</button>
         <button class="roteiro-tab" data-tab="rota-classica" role="tab" aria-selected="false">Okinawa &amp; Rota Clássica · 17 dias</button>
       </div>
+
+
+      <!-- ROTEIRO OKINAWA -->
+      <div class="tab-panel active" id="tab-okinawa" role="tabpanel" aria-label="Roteiro Okinawa">
+        <div class="roteiro__head reveal">
+          <div class="roteiro__title">
+            <span>Sugestão de roteiro</span>
+            OKINAWA · 10 dias
+          </div>
+          <div class="roteiro__badges">
+            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
+            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
+          </div>
+        </div>
+        <ol class="timeline reveal">
+          <li class="tl-item">
+            <span class="tl-dot">1</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 1</span>
+                <span class="tl-badge">✈ Embarque</span>
+              </div>
+              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
+              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">2</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 2</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
+              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">3</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 3</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">26/10 (3ª. feira) – DUBAI <span class="arrow">→</span> OKINAWA</div>
+              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Ao chegar, recepção e traslado ao hotel.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">4</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 4</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">27/10 (4ª. feira) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">5</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 5</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">28/10 (5ª. feira) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">6</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 6</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">29/10 (6ª. feira) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">7</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 7</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">30/10 (sábado) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--gold">
+            <span class="tl-dot tl-dot--gold">8</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 8</span>
+                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
+              </div>
+              <div class="tl-city">31/10 (domingo) – OKINAWA</div>
+              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
+            </div>
+          </li>
+          <li class="tl-item tl-item--fly">
+            <span class="tl-dot">9</span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">DIA 9</span>
+                <span class="tl-badge">✈ Voo</span>
+              </div>
+              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
+              <p class="tl-desc">Saída do hotel e traslado para o aeroporto. Embarque em voo para São Paulo. WhatsApp: 11-950947709 WhatsApp: 11-996346957</p>
+            </div>
+          </li>
+        </ol>
+        <p class="roteiro__note reveal">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+          <span><strong>Nota:</strong> consulte opcionais de passeios nos dias livres.</span>
+        </p>
+        <div class="roteiro__cta reveal">
+          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
+          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
+        </div>
+      </div>
+
 
       <!-- ROTEIRO CHINA &amp; OKINAWA -->
       <div class="tab-panel" id="tab-china" role="tabpanel" aria-label="Roteiro China &amp; Okinawa">
@@ -1049,6 +1174,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO BANCOC &amp; OKINAWA -->
       <div class="tab-panel" id="tab-bancoc" role="tabpanel" aria-label="Roteiro Bancoc &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1171,6 +1298,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO COREIA &amp; OKINAWA -->
       <div class="tab-panel" id="tab-coreia" role="tabpanel" aria-label="Roteiro Coreia &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1293,6 +1422,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO DUBAI &amp; OKINAWA -->
       <div class="tab-panel" id="tab-dubai" role="tabpanel" aria-label="Roteiro Dubai &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1415,6 +1546,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO ISTAMBUL &amp; OKINAWA -->
       <div class="tab-panel" id="tab-istambul" role="tabpanel" aria-label="Roteiro Istambul &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1537,6 +1670,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO TAIPEI &amp; OKINAWA -->
       <div class="tab-panel" id="tab-taipei" role="tabpanel" aria-label="Roteiro Taipei &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1659,6 +1794,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO PARIS &amp; OKINAWA -->
       <div class="tab-panel" id="tab-paris" role="tabpanel" aria-label="Roteiro Paris &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1759,6 +1896,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO ROMA &amp; OKINAWA -->
       <div class="tab-panel" id="tab-roma" role="tabpanel" aria-label="Roteiro Roma &amp; Okinawa">
         <div class="roteiro__head reveal">
@@ -1859,128 +1998,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
-      <!-- ROTEIRO OKINAWA -->
-      <div class="tab-panel" id="tab-okinawa" role="tabpanel" aria-label="Roteiro Okinawa">
-        <div class="roteiro__head reveal">
-          <div class="roteiro__title">
-            <span>Sugestão de roteiro</span>
-            OKINAWA · 10 dias
-          </div>
-          <div class="roteiro__badges">
-            <span class="roteiro__badge">✈ Saída: 24/10/2027</span>
-            <span class="roteiro__badge roteiro__badge--gold">🎌 Festival 27–31/10</span>
-          </div>
-        </div>
-        <ol class="timeline reveal">
-          <li class="tl-item">
-            <span class="tl-dot">1</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 1</span>
-                <span class="tl-badge">✈ Embarque</span>
-              </div>
-              <div class="tl-city">24/10 (domingo) – SÃO PAULO</div>
-              <p class="tl-desc">Apresentação no aeroporto de Guarulhos.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--fly">
-            <span class="tl-dot">2</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 2</span>
-                <span class="tl-badge">✈ Voo</span>
-              </div>
-              <div class="tl-city">25/10 (2ª. feira) – SÃO PAULO <span class="arrow">→</span> DUBAI</div>
-              <p class="tl-desc">Embarque em voo com destino a Dubai. Chegada e conexão com voo para o Japão.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--fly">
-            <span class="tl-dot">3</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 3</span>
-                <span class="tl-badge">✈ Voo</span>
-              </div>
-              <div class="tl-city">26/10 (3ª. feira) – DUBAI <span class="arrow">→</span> OKINAWA</div>
-              <p class="tl-desc">Chegada o Japão e conexão com voo para a Ilha de Okinawa. Ao chegar, recepção e traslado ao hotel.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--gold">
-            <span class="tl-dot tl-dot--gold">4</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 4</span>
-                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
-              </div>
-              <div class="tl-city">27/10 (4ª. feira) – OKINAWA</div>
-              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--gold">
-            <span class="tl-dot tl-dot--gold">5</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 5</span>
-                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
-              </div>
-              <div class="tl-city">28/10 (5ª. feira) – OKINAWA</div>
-              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--gold">
-            <span class="tl-dot tl-dot--gold">6</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 6</span>
-                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
-              </div>
-              <div class="tl-city">29/10 (6ª. feira) – OKINAWA</div>
-              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--gold">
-            <span class="tl-dot tl-dot--gold">7</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 7</span>
-                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
-              </div>
-              <div class="tl-city">30/10 (sábado) – OKINAWA</div>
-              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--gold">
-            <span class="tl-dot tl-dot--gold">8</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 8</span>
-                <span class="tl-badge tl-badge--fest">🎌 Festival Uchinanchu</span>
-              </div>
-              <div class="tl-city">31/10 (domingo) – OKINAWA</div>
-              <p class="tl-desc">Dia livre. 8º Festival Mundial Uchinanchu.</p>
-            </div>
-          </li>
-          <li class="tl-item tl-item--fly">
-            <span class="tl-dot">9</span>
-            <div class="tl-card">
-              <div class="tl-meta">
-                <span class="tl-date">DIA 9</span>
-                <span class="tl-badge">✈ Voo</span>
-              </div>
-              <div class="tl-city">01/11 (2ª. feira) – OKINAWA <span class="arrow">→</span> SÃO PAULO</div>
-              <p class="tl-desc">Saída do hotel e traslado para o aeroporto. Embarque em voo para São Paulo. WhatsApp: 11-950947709 WhatsApp: 11-996346957</p>
-            </div>
-          </li>
-        </ol>
-        <p class="roteiro__note reveal">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-          <span><strong>Nota:</strong> consulte opcionais de passeios nos dias livres.</span>
-        </p>
-        <div class="roteiro__cta reveal">
-          <a class="btn btn--coral btn--lg" href="#contato">Quero esse roteiro — fale com a Nakasone</a>
-          <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
-        </div>
-      </div>
+
+
       <!-- ROTEIRO OKINAWA &amp; TÓQUIO -->
       <div class="tab-panel" id="tab-okinawa-toquio" role="tabpanel" aria-label="Roteiro Okinawa &amp; Tóquio">
         <div class="roteiro__head reveal">
@@ -2092,6 +2111,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO OKINAWA, ISHIGAKI &amp; TÓQUIO -->
       <div class="tab-panel" id="tab-ishigaki" role="tabpanel" aria-label="Roteiro Okinawa, Ishigaki &amp; Tóquio">
         <div class="roteiro__head reveal">
@@ -2236,6 +2257,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO OKINAWA, TOHOKU &amp; TÓQUIO -->
       <div class="tab-panel" id="tab-tohoku" role="tabpanel" aria-label="Roteiro Okinawa, Tohoku &amp; Tóquio">
         <div class="roteiro__head reveal">
@@ -2380,6 +2403,8 @@
           <p>Dúvidas sobre o itinerário? Atendimento em português pelo WhatsApp.</p>
         </div>
       </div>
+
+
       <!-- ROTEIRO OKINAWA &amp; ROTA CLÁSSICA -->
       <div class="tab-panel" id="tab-rota-classica" role="tabpanel" aria-label="Roteiro Okinawa &amp; Rota Clássica">
         <div class="roteiro__head reveal">
@@ -2622,6 +2647,20 @@
         // reveals inside hidden panels never got observed (display:none skips IO) — force visible
         panel.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
       }
+    });
+  });
+
+
+  /* ---------- CARDS DE DESTINO → ABAS DE ROTEIRO ---------- */
+  document.querySelectorAll('.destino').forEach(card => {
+    card.addEventListener('click', (e) => {
+      const slug = card.dataset.roteiro;
+      if (!slug) return;
+      e.preventDefault();
+      const tab = document.querySelector('.roteiro-tab[data-tab="' + slug + '"]');
+      if (tab) tab.click();
+      const sec = document.getElementById('roteiros');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
